@@ -1,0 +1,45 @@
+/* Cores e conversão rem */
+:root {
+	--dark: #261932;
+	--medium: #a152ef;
+	--light: #d3cadd;
+	--background: #f9f9f9;
+	--white: #ffffff;
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+/* Base */
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	font: 400 1.6rem "DM Sans", sans-serif;
+}
+
+h1 {
+	font: 700 3rem "Poppins", sans-serif;
+}
+
+/* Layout */
+
+#header {
+	height: 7.2rem;
+}
+
+nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+.container {
+	width: 100%; /* 32.7rem; */
+	margin: 0 2.4rem;
+}
