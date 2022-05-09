@@ -173,6 +173,24 @@ nav.show .menu {
 	place-content: center;
 }
 
+/* Toggle menu */
+.toggle {
+	color: var(--medium);
+	font-size: 2.4rem;
+}
+
+nav .icon-close {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	right: 2.4rem;
+}
+
+nav.show .icon-close {
+	visibility: visible;
+	opacity: 1;
+}
+
 /* Home */
 
 #home {
