@@ -5,6 +5,10 @@
 	box-sizing: border-box;
 }
 
+ul {
+	list-style: none;
+}
+
 a {
 	text-decoration: none;
 }
@@ -17,6 +21,7 @@ img {
 /* Cores e conversão rem */
 :root {
 	--header-height: 7.2rem;
+	--transition-time: 0.3s;
 	--dark: #261932;
 	--medium: #a152ef;
 	--light: #d3cadd;
@@ -39,7 +44,11 @@ body {
 	color: var(--grey);
 }
 
-h1 {
+main {
+	margin-top: calc(var(--header-height) + 3.2rem);
+}
+
+.title {
 	font: 700 3rem "Poppins", sans-serif;
 	color: var(--dark);
 }
@@ -53,7 +62,7 @@ h1 {
 	padding: 0 3.2rem;
 	border-radius: 0.4rem;
 	font: 500 1.6rem "DM Sans", sans-serif;
-	transition: 0.3s;
+	transition: var(--transition-time);
 }
 
 .button:hover {
@@ -82,7 +91,6 @@ h1 {
 
 #header {
 	border-bottom: 1px solid var(--light-grey);
-	margin-bottom: 3.2rem;
 	display: flex;
 	width: 100%;
 	position: fixed;
@@ -92,13 +100,7 @@ h1 {
 	left: 0;
 }
 
-nav {
-	height: var(--header-height);
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-}
+/* Logo */
 
 .logo {
 	font: 700 2.1rem "Poppins", sans-serif;
@@ -109,8 +111,66 @@ nav {
 	color: var(--medium);
 }
 
-main {
-	margin-top: var(--header-height);
+/* Navigation */
+
+nav {
+	height: var(--header-height);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+nav ul li a {
+	transition: color var(--transition-time);
+	position: relative;
+}
+
+nav ul li a:hover {
+	color: var(--medium);
+}
+
+nav ul li a::after {
+	content: "";
+	width: 0%;
+	height: 0.2rem;
+	background: var(--medium);
+	position: absolute;
+	left: 0;
+	bottom: -2.4rem;
+	transition: width var(--transition-time);
+}
+
+nav ul li a:hover::after {
+	width: 100%;
+}
+
+nav ul li {
+	text-align: center;
+}
+
+nav .menu {
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Menu Show */
+
+nav.show ul.grid {
+	gap: 6.4rem;
+}
+
+nav.show .menu {
+	opacity: 1;
+	visibility: visible;
+	background: var(--background);
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: grid;
+	place-content: center;
 }
 
 /* Home */
@@ -128,7 +188,7 @@ main {
 }
 
 /* #home .image img::before { // Não estava funcionando */
-	#home .image::after {
+#home .image::after {
 	content: "";
 	height: 100%;
 	width: 100%;
