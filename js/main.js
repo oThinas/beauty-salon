@@ -16,16 +16,16 @@ for (const link of links) {
 }
 
 // Colocar sombra no header quando der o scroll
-const header = document.querySelector('#header')
-const navHeight = header.offsetHeight
 
-window.addEventListener('scroll', () => {
+function changeHeaderWhenScroll() {
+    const header = document.querySelector('#header')
+    const navHeight = header.offsetHeight
     if (window.scrollY >= navHeight) {
         header.classList.add('scroll')
     } else {
         header.classList.remove('scroll')
     }
-})
+}
 
 // Swiper
 const swiper = new Swiper('.swiper', {
@@ -50,6 +50,23 @@ scrollReveal.reveal(
     #about .image, #about .text,
     #services header, #services .card,
     #testimonials header, #testimonials .testimonials,
-    #contact .text, #contact .links`,
+    #contact .text, #contact .links,
+    footer .brand, footer .social`,
     { interval: 100 }
 )
+
+// Back-to-top
+function backToTop() {
+    const backToTopButton = document.querySelector('.back-to-top')
+    if (window.scrollY >= 560) {
+        backToTopButton.classList.add('show')
+    } else {
+        backToTopButton.classList.remove('show')
+    }
+}
+
+// Scroll da Tela
+window.addEventListener('scroll', () => {
+    changeHeaderWhenScroll()
+    backToTop()
+})

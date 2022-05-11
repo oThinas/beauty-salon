@@ -132,6 +132,10 @@ span {
 	color: var(--medium);
 }
 
+.logo-alt span {
+	color: var(--background);
+}
+
 /* Navigation */
 
 nav {
@@ -432,4 +436,62 @@ nav.show div.icon-close {
 
 #contact ul li i {
 	color: var(--medium);
+}
+
+/* Footer */
+
+footer {
+	background: var(--medium);
+}
+
+footer .logo {
+	display: inline-block;
+	margin-bottom: 2.4rem;
+}
+
+footer .brand p {
+	color: var(--background);
+	margin-bottom: 1.2rem;
+}
+
+footer i {
+	color: var(--background);
+	font-size: 2.4rem;
+}
+
+footer .social {
+	display: flex;
+	gap: 3.2rem
+}
+
+footer .social a {
+	transition: var(--transition-time);
+}
+
+footer .social a:hover {
+	transform: translateY(-0.5rem);
+}
+
+/* Back to top */
+
+.back-to-top {
+	color: var(--background);
+	background: var(--medium);
+	position: fixed;
+	right: 1.6rem;
+	bottom: 1.6rem;
+	padding: 0.8rem;
+	clip-path: circle();
+	font-size: 2.4rem;
+	line-height: 0;
+	visibility: hidden;
+	opacity: 0;
+	transition: var(--transition-time);
+	transform: translateY(100%);
+}
+
+.back-to-top.show {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0%);
 }
