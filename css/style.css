@@ -34,6 +34,9 @@ img {
 
 	/* font-family: "DM Sans", sans-serif; */
 	/* font-family: "Poppins", sans-serif; */
+	/* Responsive */
+	--title-font-size: 3rem;
+	--subtitle-font-size: 1.6rem;
 }
 
 /* Base */
@@ -49,7 +52,7 @@ body {
 }
 
 .title {
-	font: 700 3rem "Poppins", sans-serif;
+	font: 700 var(--title-font-size) "Poppins", sans-serif;
 	color: var(--dark);
 }
 
@@ -90,11 +93,15 @@ body {
 }
 
 .section {
-	padding: 8rem 0;
+	padding: calc(8rem + var(--header-height)) 0;
 }
 
 .section .title {
 	margin-bottom: 1.6rem;
+}
+
+.section .subtitle {
+	font-size: var(--subtitle-font-size);
 }
 
 .section header {
@@ -115,10 +122,6 @@ body {
 
 #header.scroll {
 	box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-}
-
-main {
-	margin-top: calc(var(--header-height) + 3.2rem);
 }
 
 /* Logo */
@@ -155,7 +158,8 @@ nav ul li a {
 	position: relative;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li a.active {
 	color: var(--medium);
 }
 
@@ -170,7 +174,8 @@ nav ul li a::after {
 	transition: width var(--transition-time);
 }
 
-nav ul li a:hover::after {
+nav ul li a:hover::after,
+nav ul li a.active::after {
 	width: 100%;
 }
 
@@ -395,8 +400,8 @@ nav.show div.icon-close {
 	width: 3.2rem;
 	height: 3.2rem;
 	margin-right: 0.8rem;
-	/* object-fit: cover 
-	clip-path: circle() */
+	object-fit: cover;
+	clip-path: circle();
 }
 
 /* Swiper */
@@ -444,6 +449,10 @@ footer {
 	background: var(--medium);
 }
 
+footer.section {
+	padding: 6.4rem 0;
+}
+
 footer .logo {
 	display: inline-block;
 	margin-bottom: 2.4rem;
@@ -481,7 +490,10 @@ footer .social a:hover {
 	right: 1.6rem;
 	bottom: 1.6rem;
 	padding: 0.8rem;
-	clip-path: circle();
+	/* clip-path: circle(); */
+	/* Usei "border-radius: 50%" no lugar para poder ficar visível no footer, que é da mesma cor que o botão */
+	border-radius: 50%;
+	border: 0.2rem solid var(--background);
 	font-size: 2.4rem;
 	line-height: 0;
 	visibility: hidden;
@@ -494,4 +506,148 @@ footer .social a:hover {
 	visibility: visible;
 	opacity: 1;
 	transform: translateY(0%);
+}
+
+/* Responsive */
+/* extra large devices: 1200 >
+large devices: 1023 >
+semi larger devices: 992 >
+medium devices: 767 >
+small devices: < 767 */
+
+@media (min-width: 767px) {
+	/* Base */
+
+	.container {
+		max-width: 112rem;
+		margin: 0 auto;
+	}
+
+	.section {
+		padding: 16rem 0;
+	}
+
+	.setion header,
+	#services header,
+	#testimonials header {
+		max-width: 48.2rem;
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.button {
+		height: 5rem;
+	}
+
+	main {
+		margin-top: var(--header-height);
+	}
+
+	/* Header */
+
+	nav .menu {
+		opacity: 1;
+		visibility: visible;
+		top: 0;
+	}
+
+	nav .menu ul {
+		display: flex;
+		gap: 3.2rem;
+	}
+
+	nav .menu ul li a.title {
+		font: 400 1.6rem "DM Sans", sans-serif;
+		color: var(--dark);
+	}
+
+	nav .menu ul li a:hover,
+	nav .menu ul li a.active {
+		color: var(--medium);
+	}
+
+	nav .icon-menu {
+		display: none;
+		visibility: hidden;
+	}
+
+	/* Home */
+
+	#home .container {
+		grid-auto-flow: column;
+		justify-content: space-between;
+		margin: 0 auto;
+	}
+
+	#home .image {
+		/* "order" só funciona porque está em um elemento com "display: grid / flex" */
+		order: 1;
+	}
+
+	#home .text {
+		order: 0;
+		max-width: 39.6rem;
+		text-align: left;
+	}
+
+	/* About */
+
+	#about .container {
+		grid-auto-flow: column;
+	}
+
+	#about .text {
+		text-align: left;
+	}
+
+	/* Services */
+
+	.cards {
+		grid-template-columns: 1fr 1fr 1fr;
+		padding-left: 0 4.8rem;
+		padding-right: 0 4.8rem;
+	}
+
+	/* Testimonials */
+
+	#testimonials .container {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/* Contact */
+	#contact .container {
+		grid-auto-flow: column;
+		align-items: center;
+	}
+	
+	#contact .text {
+		grid-auto-flow: column;
+		max-width: 40.4rem;
+	}
+
+	/* Footer */
+
+	footer.section {
+		padding: 6rem 0;
+	}
+
+	footer .container {
+		grid-auto-flow: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	footer .logo {
+		font-size: 3.8rem;
+	}
+}
+
+/* semi larger devices: 992 > */
+
+@media (min-width: 992px) {
+	:root {
+		--title-font-size: 3.6rem;
+		--subtitle-font-size: 1.8rem;
+	}
 }
