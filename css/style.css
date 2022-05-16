@@ -515,12 +515,12 @@ semi larger devices: 992 >
 medium devices: 767 >
 small devices: < 767 */
 
-@media (min-width: 767px) {
+@media (min-width: 880px) {
 	/* Base */
 
 	.container {
 		max-width: 112rem;
-		margin: 0 auto;
+		margin: 0 12.2rem;
 	}
 
 	.section {
@@ -532,7 +532,7 @@ small devices: < 767 */
 	#testimonials header {
 		max-width: 48.2rem;
 		text-align: center;
-		margin: 0 auto;
+		margin: 0 12.2rem;
 	}
 
 	.button {
