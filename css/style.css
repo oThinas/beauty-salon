@@ -514,13 +514,15 @@ large devices: 1023 >
 semi larger devices: 992 >
 medium devices: 767 >
 small devices: < 767 */
-@media (min-width: 1366) {
+
+@media (min-width: 1366px) {
 	.container {
-		margin: 0 auto;
+		margin: 0 min(12.2rem, auto);
+		/* margin: 0 auto; */
 	}
 }
 
-@media (min-width: 880px) {
+@media (min-width: 1200px) {
 	/* Base */
 
 	.container {
@@ -663,8 +665,6 @@ small devices: < 767 */
 		font-size: 3.8rem;
 	}
 }
-
-/* semi larger devices: 992 > */
 
 @media (min-width: 992px) {
 	:root {
